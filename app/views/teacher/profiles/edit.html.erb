@@ -1,0 +1,57 @@
+    <h2>プロフィール修正</h2>
+    <div>
+      <table>
+        <tr>
+          <td class="human_profile">名前</td>
+          <td><input type="text" name="student_name" maxlength="24" size="23"/></td>
+        </tr>
+        
+        <tr>
+        <td class="human_profile">年齢</td>
+        <td><input type="text" name="student_age" maxlength="24" size="23"/></td>
+        </tr>
+        
+        <tr>
+        <td class="human_profile">都道府県</td>
+        <td><input type="text" name="student_" maxlength="24" size="23"/></td>
+        </tr>
+        
+        <tr>
+          <td class="human_profile">市町村</td>        
+          <td><select id="city" name="city" onFocus="change()">
+            <option value="0">-</option>
+          </select></td>
+        </tr>
+
+        <tr>
+          <td  class="human_profile">在籍学校名</td>
+          <td>
+            <input type="text" name="school_name" maxlength="20" size="23"/><br>
+            <input type="checkbox"><label>小学校</label>
+            <input type="checkbox"><label>中学校</label>
+            <input type="checkbox"><label>高等学校</label> 
+          </td>
+        </tr>  
+
+        <tr>
+          <td class="human_profile">写真</td>
+          <td>
+            <form method="post" enctype="multipart/form-data">
+             <input type="file" name="pic"><br>
+             <input type="submit" name="botan" value="登録">
+          </form>
+          </td>
+
+          
+        </tr>
+          
+        
+        <tr>
+          <td colspan="2" class="profile">
+            *自己紹介*<br>
+            <textarea name="student_self_introduction" cols="50" rows="15" maxlength="30" style="resize: none;"></textarea>
+          </td>
+        </tr>
+        
+      </table>
+    </div>
