@@ -7,4 +7,8 @@ class Teacher::ProfilesController < TeacherController
     def update
         
     end
+    
+    def show
+        
+    end
 end

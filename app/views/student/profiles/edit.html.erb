@@ -8,19 +8,17 @@
         
         <tr>
         <td class="human_profile">年齢</td>
-        <td><input type="text" name="student_age" maxlength="24" size="23"/></td>
+        <td><input type="number" name="student_age" min="0" max="99" step="1" maxlength="24" size="23"/></td>
         </tr>
         
         <tr>
         <td class="human_profile">都道府県</td>
-        <td><input type="text" name="student_" maxlength="24" size="23"/></td>
+        <td><input type="text" name="student_pref" maxlength="24" size="23"/></td>
         </tr>
         
         <tr>
           <td class="human_profile">市町村</td>        
-          <td><select id="city" name="city" onFocus="change()">
-            <option value="0">-</option>
-          </select></td>
+          <td><input type="text" name="student_cities" maxlength="24" size="23"/></td>
         </tr>
 
         <tr>
@@ -29,7 +27,7 @@
             <input type="text" name="school_name" maxlength="20" size="23"/><br>
             <input type="checkbox"><label>小学校</label>
             <input type="checkbox"><label>中学校</label>
-            <input type="checkbox"><label>高等学校</label> 
+            <input type="checkbox"><label>高等学校</label>
           </td>
         </tr>  
 
