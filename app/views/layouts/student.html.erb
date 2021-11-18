@@ -23,21 +23,21 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">チョイス<span class="sr-only">(current)</span></a>
+            <%= link_to "さがす", student_teachers_path, {class: "nav-link"} %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">メッセージ</a>
+            <%= link_to "メッセージ", student_messages_path, {class: "nav-link"} %>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             マイページ  
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">プロフィール確認</a>
-              <a class="dropdown-item" href="#">先生一覧</a>
-              <a class="dropdown-item" href="#">設定</a>
-              <a class="dropdown-item" href="#">ヘルプ</a>
-              <a class="dropdown-item" href="#">よくある質問</a>
+              <a class="dropdown-item" >プロフィール確認</a>
+              <a class="dropdown-item" >先生一覧</a>
+              <a class="dropdown-item" >設定</a>
+              <a class="dropdown-item" >ヘルプ</a>
+              <%= link_to "よくある質問", student_inquiries_path, {class: "dropdown-item"} %>
             </div>
           </li>
           <li class="nav-item">

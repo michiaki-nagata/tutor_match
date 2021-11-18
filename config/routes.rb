@@ -4,10 +4,20 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
   namespace :teacher do
-      resource :profile
+      resources :students, only: [:index, :show]
+      resources :messages, only: [:index, :show]
+      resources :comments, only: [:create]
+      resources :managements, only: [:index, :show]
+      resources :inquiries, only: [:new, :create, :index, :show]
   end
   
   namespace :student do
-      resource :profile
+      resource :student, only: [:update]
+      resources :teachers, only: [:index, :show]
+      resources :messages, only: [:index, :show]
+      resources :comments, only: [:create]
+      resources :inquiries, only: [:new, :create, :index, :show]
   end
+  
+ 
 end

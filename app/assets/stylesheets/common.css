@@ -23,6 +23,7 @@ h4{
 p{
     margin: 0px;
 }
+
 .human_profile{
     background-color: lavender;
     
@@ -30,4 +31,134 @@ p{
 
 .profile{
     width: 32px;
+    word-break: break-word;
+}
+
+/* メッセージ詳細 */
+.chat{
+    min-width:500px;
+    width:50%;
+    margin: 0 auto;
+    box-sizing:border-box;
+    padding:10px; 
+    overflow: hidden;
+}
+    
+.logo{
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    background:rgb(255,255,255);
+}
+.chat1{
+    display:flex;
+    -webkit-box-pack:start;
+    overflow: hidden;
+    margin:0 8px 16px 8px;
+}    
+    
+.comment{
+    position:relative;
+    max-width:300px;
+    background:#fff;
+    padding:8px;
+    margin:0 8px 0 8px;
+    border:solid 1px rgb(150,150,150);
+    border-radius:8px;
+}
+    
+.chat2{
+    display:flex;
+    flex-direction:row-reverse;
+    -webkit-box-pack:end;
+    overflow: hidden;
+    margin:0 8px 16px 8px;
+}
+
+.clearfix{clear:both;}
+
+.messages{
+    word-break: break-all;
+}
+
+/* メッセージ一覧 */
+
+.time-box .time{
+    color: rgb(170, 170, 170);
+    font-size: 0.8px;
+}
+
+
+.message_receive_time{
+    right: 10px;
+    top: 10px;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 0.75rem;
+}
+
+.message_user_list{
+    display: inline-block;
+}
+
+
+
+.massage_user_name{
+    
+}
+
+.massage_photo{
+    width: 80px;
+    border-radius: 50%;
+}
+
+.massage_text{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    flex: 1 1 auto;
+}
+
+.massage_ul{
+    list-style: none;
+}
+
+.massage_li{
+    margin-bottom: 10px;
+}
+
+.massage_div{
+    margin: 0 auto;
+    margin-left: 10px;
+}
+
+.massage_div_in_div{
+    display: grid;
+    grid-template-columns: 1fr fit-content(100%);
+    text-align: justify;
+}
+
+.massage_button{
+    cursor: pointer;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    background-color: rgb(255,255,255);
+    border-style: none;
+    padding: 0px;
+}
+
+/* 教師決定 */
+
+.decision_img{
+    width:200px;
+    height:200px;
+    border-radius: 50%;
+    background:rgb(255,255,255);
+    margin: 30px;
+}
+
+.decision_button{
+    margin-right: 10px;
+    margin-left: 10px;
+    cursor: pointer;
 }

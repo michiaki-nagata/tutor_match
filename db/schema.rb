@@ -15,11 +15,16 @@ ActiveRecord::Schema.define(version: 2021_11_09_130942) do
   create_table "comments", force: :cascade do |t|
     t.integer "message_id"
     t.text "text"
+    t.string "sender"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "inquiries", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "title"
+    t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
