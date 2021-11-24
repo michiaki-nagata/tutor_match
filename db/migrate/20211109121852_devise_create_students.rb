@@ -11,9 +11,9 @@ class DeviseCreateStudents < ActiveRecord::Migration[5.2]
       t.string :city,               null: false, default: ""
       t.string :adress,             null: false, default: ""
       t.string :phone
-      t.integer :gender,            null: false
+      t.integer :gender,            null: false, default: ""
       t.text :introduction
-      t.integer :age
+      t.integer :age,               null: false, default: ""
 
       ## Recoverable
       t.string   :reset_password_token
