@@ -2,38 +2,25 @@
       メッセージ
     </div>
     <ul class="massage_ul">
+      <% @message_student_ids.each do |message_student_id| %>
+      <% message_student = User.find_by(id: message_student_id.student_id) %>
       <li class="massage_li">
-        <%= link_to student_messages_path(1) do %>
+        <%= link_to student_messages_path(message.id) do %>
         <button class="massage_button">
           <div style="display:flex;">
             <img src="https://i2.wp.com/sengoku-history.com/wp-content/uploads/2018/05/237daccc059db4e6d624afcab8e62197.jpg?fit=348%2C342&ssl=1" class="massage_photo"></img>
             <div class="message_div">
               <div class="massage_div_in_div">
-                <h5 class="massage_user_name">徳川家康</h5>
+                <h5 class="massage_user_name">message_student.name</h5>
                 <time class="message_receive_time">2021/10/30 17:14</time>
               </div>
               <div>
-                <p class="massage_text">こんにちは。楽しく授業ができたらうれしいです。</p>
+                
               </div>
             </div> 
           </div>
         </button>
         <% end %>
       </li>
-      <li class="massage_li">
-        <bottun class="massage_button">
-          <div style="display:flex;">
-            <img src="https://i2.wp.com/sengoku-history.com/wp-content/uploads/2018/05/237daccc059db4e6d624afcab8e62197.jpg?fit=348%2C342&ssl=1" class="massage_photo"></img>
-            <div class="message_div">
-              <diV class="massage_div_in_div">
-                <h5 class="massage_user_name">徳川家康</h5>
-                <time class="message_receive_time">2021/11/04 17:38</time>  
-              </diV>
-              <div>
-                <p class="massage_text">aaaaaaaaaaaaaaaaassssssssssssssssssssaaaaaaaaaa</p>
-              </div>
-            </div> 
-          </div>        
-        </bottun>
-      </li>
+      <% end %>
     </ul>

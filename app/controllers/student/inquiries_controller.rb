@@ -1,4 +1,4 @@
-class Student::InquiriesController < ApplicationController
+class Student::InquiriesController < StudentController
     
     def index
         @inquiries = Inquiry.all
@@ -13,7 +13,7 @@ class Student::InquiriesController < ApplicationController
     end
     
     def create
-        inquiry_params = params.require(:inquiries).permit(:name, :email, :title, :text)
+        inquiry_params = params.require(:inquiry).permit(:name, :email, :title, :text)
         @inquiry = Inquiry.new(inquiry_params)
         if @inquiry.save
             redirect_to student_inquiries_path

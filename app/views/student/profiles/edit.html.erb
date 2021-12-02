@@ -1,5 +1,45 @@
  <h2>プロフィール修正</h2>
     <div>
+      <%= form_with model: @student, local: true do |f| %>
+      <div>
+        <tr>
+          <td class="human_profile">名前</td>
+          <td><%= f.text_field :name %></td>
+        </tr>
+        
+        <tr>
+          <td class="human_profile">年齢</td>
+          <td><%= f.number_field :age %></td>
+        </tr>
+        
+        <tr>
+          <td class="human_profile">都道府県</td>
+          <td><%= f.text_field :prefecture %></td>
+        </tr>
+        
+        <tr>
+          <td class="human_profile">市町村</td>
+          <td><%= f.text_field :city %></td>
+        </tr>
+        
+        <tr>
+          <td class="human_profile">在籍学校名</td>
+          <td><%= f.text_field :school %></td>
+        </tr>
+        
+        <tr>
+          <td class="human_profile">写真</td>
+          <td><%= f.text_field :image_name %></td>
+        </tr>
+        
+        <tr>
+          <td colspan="2" class="human_profile">自己紹介</td>
+          <td><%= f.text_field :introduction %></td>
+        </tr>
+      </div>
+   
+   <%= f.submit "更新" %>
+<% end %>
       <table>
         <tr>
           <td class="human_profile">名前</td>
@@ -37,7 +77,7 @@
             <form method="post" enctype="multipart/form-data">
              <input type="file" name="pic"><br>
              <input type="submit" name="botan" value="登録">
-          </form>
+            </form>
           </td>
 
           

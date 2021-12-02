@@ -1,4 +1,4 @@
-class Teacher::InquiriesController < ApplicationController
+class Teacher::InquiriesController < TeacherController
     
     def index
         @inquiries = Inquiry.all

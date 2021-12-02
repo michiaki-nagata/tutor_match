@@ -162,3 +162,14 @@ p{
     margin-left: 10px;
     cursor: pointer;
 }
+
+/* 問い合わせ, */
+
+.inquiry_new_title_form{
+    width: -webkit-fill-available;
+}
+
+.inquiry_new_text_form{
+    width: -webkit-fill-available;
+    resize: none;
+}

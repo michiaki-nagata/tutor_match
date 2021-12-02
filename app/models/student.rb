@@ -6,4 +6,5 @@ class Student < ApplicationRecord
          
   has_many :teacher
   has_many :message
+  has_one_attached :image
 end

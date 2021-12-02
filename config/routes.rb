@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:create]
       resources :managements, only: [:index, :show]
       resources :inquiries, only: [:new, :create, :index, :show]
+      get "search", to: "students#search"
   end
   
   namespace :student do
@@ -31,7 +32,7 @@ Rails.application.routes.draw do
       resources :messages, only: [:index, :show]
       resources :comments, only: [:create]
       resources :inquiries, only: [:new, :create, :index, :show]
+      get "search", to: "teachers#search"
   end
-  
  
 end

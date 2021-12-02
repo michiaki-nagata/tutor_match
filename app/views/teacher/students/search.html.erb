@@ -3,7 +3,7 @@
       <%= search_form_for @q, url: teacher_search_path do |f| %>
         <tr>
           <td class="human_profile"><%= f.label :prefecture_cont, '都道府県' %></td>
-          <td><%= f.search_field :prefecture_cont %></td>
+          <td><%= f.search_field :prefecture_eq %></td>
         </tr>
         <tr>
           <td class="human_profile"><%= f.label :city_cont, '市町村' %></td>
@@ -16,11 +16,11 @@
             <%= f.check_box :gender_eq_any, { multiple: true }, 1, '' %>
             <%= f.label :gender, "女性" %>
             <%= f.check_box :gender_eq_any, { multiple: true }, 2, '' %>
-              ※複数選択可能
+            ※複数選択可能
           </td>
         </tr>
         <tr>
-          <td class="human_profile" >在籍学校</td>
+          <td class="human_profile">在籍学校</td>
           <td>
             <%= f.label :school, "小学校" %>
             <%= f.check_box :school_eq_any, { multiple: true }, 1, '' %>
@@ -31,15 +31,6 @@
             ※複数選択可能
           </td>
         </tr>
-        <tr>
-          <td class="human_profile"><%= f.label :hobby, "趣味" %></td>
-          <td>
-            <%= f.text_field :hobby_eq_any %></br>
-            <%= f.text_field :hobby_eq_any %></br>
-            <%= f.text_field :hobby_eq_any %></br>
-            ※3つまで同時検索可能
-          </td>
-         </tr>
 
         <tr>
           <td colspan="2">

@@ -14,6 +14,10 @@ class DeviseCreateTeachers < ActiveRecord::Migration[5.2]
       t.integer :gender,            null: false, default: ""
       t.text :introduction
       t.integer :age,               null: false, default: ""
+      t.string :school
+      t.string :subject
+      t.string :character
+      t.string :hobby
       
       
       
