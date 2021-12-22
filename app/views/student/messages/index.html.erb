@@ -1,21 +1,24 @@
-    <div style="font-size:1.5rem; font-weight:600; padding:10px 10px 15px 50px;">
+    <div style="font-size: 30px; font-weight: 600; padding: 10px 10px 15px 50px;">
       メッセージ
     </div>
     <ul class="massage_ul">
-      <% @message_student_ids.each do |message_student_id| %>
-      <% message_student = User.find_by(id: message_student_id.student_id) %>
+      <% @messages.each do |message| %>
       <li class="massage_li">
-        <%= link_to student_messages_path(message.id) do %>
+        <%= link_to student_message_path(message) do %>
         <button class="massage_button">
           <div style="display:flex;">
-            <img src="https://i2.wp.com/sengoku-history.com/wp-content/uploads/2018/05/237daccc059db4e6d624afcab8e62197.jpg?fit=348%2C342&ssl=1" class="massage_photo"></img>
+            <% if message.teacher.image.attached? %>
+              <%= image_tag message.teacher.image, class:"massage_photo" %>
+            <% else %>
+              <%= image_tag "/default_user.jpeg", class:"massage_photo" %>
+            <% end %> 
             <div class="message_div">
               <div class="massage_div_in_div">
-                <h5 class="massage_user_name">message_student.name</h5>
-                <time class="message_receive_time">2021/10/30 17:14</time>
+                <h5 class="massage_user_name"><%= message.teacher.name %></h5>
+                  <time class="message_receive_time"><%= message.comments.last&.created_at&.to_s(:datetime_jp) %></time>
               </div>
               <div>
-                
+                <p class="massage_text"><%= message.comments.last&.text %></p>
               </div>
             </div> 
           </div>

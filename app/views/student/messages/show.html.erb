@@ -1,32 +1,31 @@
-  <div class="chat">
-    <h4 style="text-align:left;">徳川家康さん</h4>
-    <div class="chat1 clearfix">
-        <div class="logo">
-          <img src="https://i2.wp.com/sengoku-history.com/wp-content/uploads/2018/05/237daccc059db4e6d624afcab8e62197.jpg?fit=348%2C342&ssl=1" class="logo"></img>
-        </div>
-        <div class="comment">
-            <p class="messages">こんにちは。楽しく授業ができたらうれしいです。aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-            <div class="time-box">
-                <span class="time">2021/10/30 17：00</span>
-            </div> 
-        </div>
-           
+<div class="chat">
+  <h2 style="text-align:left;"><%= @message.teacher.name %></h4>
+  <section>
+  <% @comments.each do |comment| %>
+    <div class="<%= comment.sender == "Teacher" ? "chat1 clearfix" : "chat2 clearfix" %>" >
+      <% if (comment.sender == "Teacher" ? @message.teacher : @message.student).image.attached? %>
+        <%= image_tag (comment.sender == "Teacher" ? @teacher : @student).image, class:"logo" %>
+      <% else %>
+        <%= image_tag "/default_user.jpeg", class:"logo" %>
+      <% end %>  
+      <div class="comment">
+        <p class="messages"><%= comment.text %></p>
+        <div class="time-box" style="text-align: right;">
+          <time class="time"><%= comment.created_at.to_s(:datetime_jp) %></time>
+        </div> 
+      </div>
+    </div>  
+  <% end %>  
+  </section>
+  
+ 
+  <section>
+    <div>
+      <%= form_with model:[:student, @comment], class:"message_send", local: true do |f| %> 
+        <%= f.hidden_field :message_id, :value => @message.id %>
+        <%= f.text_area :text, class:"message_text" %>
+        <%= f.submit "送信" %>
+      <% end %>
     </div>    
-    <div class="chat2 clearfix">
-        <div class="comment">
-            <p class="messages">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaassssssssssssssssssssssssssssssssssssssssssssss</p>
-            <div class="time-box" style="text-align: right;">
-                <time class="time">2021/10/30 17：15</time>
-            </div>
-        </div>
-    </div>
-    <diV>
-      <form action="form.php" method="post">
-        <div>
-          <label for="message"></label><br>
-          <input type="text" placeholder="メッセージを入力..." />
-          <button type="submit">送信</button>
-        </div>
-      </form>
-    </diV>
-  </div> 
+  </section>
+</div>

@@ -1,5 +1,6 @@
     <h2>生徒検索</h2>
-    <table>
+    <div>
+      <table>
       <%= search_form_for @q, url: teacher_search_path do |f| %>
         <tr>
           <td class="human_profile"><%= f.label :prefecture_cont, '都道府県' %></td>
@@ -47,42 +48,46 @@
           </td>
         </tr>
       <% end %>       
-    </table>
+    </table>    
+    </div>
+
 
     <h1>生徒の一覧</h1>
-    <table>
-      <tr>
-      <% @students.each do |student| %>
-        <td rowspan="2">
-        <%= link_to teacher_student_path(student.id) do %>  
-          <% if student.image.attached? %>
-          <%= image_tag student.image, width:"150px" %>
-          <% else %>
-          <%= image_tag "/default_user.jpeg", width:"100px" %>
+    <div>
+      <table>
+        <% @students.each do |student| %>
+        <tr>
+          <td rowspan="2">
+          <%= link_to teacher_student_path(student.id) do %>  
+            <% if student.image.attached? %>
+            <%= image_tag student.image, class:"profile_image" %>
+            <% else %>
+            <%= image_tag "/default_user.jpeg", class:"profile_image" %>
+            <% end %>
+          <% end %>          
+          </td>
+          <td class="human_profile">名前</td>
+          <td class="human_profile">性別</td>
+          <td class="human_profile">年齢</td>
+          <td class="human_profile">都道府県</td>
+        </tr>
+        <tr>
+          <td><%= student.name %></td>
+          <% if student.gender == 1 %>
+          <td>男</td>
+          <% elsif student.gender == 2 %>
+          <td>女</td>
           <% end %>
-        <% end %>          
-        </td>
-        <td class="human_profile">名前</td>
-        <td class="human_profile">性別</td>
-        <td class="human_profile">年齢</td>
-        <td class="human_profile">都道府県</td>
-      </tr>
-      <tr>
-        <td><%= student.name %></td>
-        <% if student.gender == 1 %>
-        <td>男</td>
-        <% elsif student.gender == 2 %>
-        <td>女</td>
+          <td><%= student.age %></td>
+          <td><%= student.prefecture %></td>
+        </tr>
+        <tr>
+          <% if student.introduction == nil %>
+            <td colspan="5" class="profile">＊自己紹介はありません。</td>
+          <% else %>
+            <td colspan="5" class="profile"><%= student.introduction %></td>
+          <% end %>          
+        </tr>
         <% end %>
-        <td><%= student.age %></td>
-        <td><%= student.prefecture %></td>
-      </tr>
-      <tr>
-        <% if student.introduction == nil %>
-          <td colspan="5" class="profile">＊自己紹介はありません。</td>
-        <% else %>
-          <td colspan="5" class="profile"><%= student.introduction %></td>
-        <% end %>          
-      </tr>
-      <% end %>
-    </table>
+      </table>      
+    </div>

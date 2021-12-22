@@ -13,5 +13,15 @@ class Teacher::StudentsController < TeacherController
     
     def show
         @student = Student.find(params[:id])
+        messages = current_teacher.messages
+        @student_ids = []
+        messages.each do |r|
+            @student_ids << r.student_id
+        end
+        messages.each do |message|
+           if message.student_id == @student.id
+               @message = message
+           end
+        end
     end
 end

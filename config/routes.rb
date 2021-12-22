@@ -19,20 +19,23 @@ Rails.application.routes.draw do
   
   namespace :teacher do
       resources :students, only: [:index, :show]
-      resources :messages, only: [:index, :show]
+      resources :messages, only: [:index, :show, :create]
       resources :comments, only: [:create]
-      resources :managements, only: [:index, :show]
+      resources :managements, only: [:index, :show, :create]
       resources :inquiries, only: [:new, :create, :index, :show]
       get "search", to: "students#search"
   end
   
   namespace :student do
-      resource :student, only: [:update]
+      resources :student, only: [:edit, :update]
       resources :teachers, only: [:index, :show]
-      resources :messages, only: [:index, :show]
+      resources :messages, only: [:index, :show, :create]
       resources :comments, only: [:create]
       resources :inquiries, only: [:new, :create, :index, :show]
       get "search", to: "teachers#search"
-  end
- 
+  end 
+  
+  root "tops#top"
+  get "top", to: "tops#top"
+  
 end

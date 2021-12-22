@@ -1,12 +1,12 @@
     <div>
-      <h1><%= @student.name %>さん</h1>
+      <h1><%= @student.name %></h1>
       <table>
         <tr>
           <td rowspan="2">
             <% if @student.image.attached? %>
-            <%= image_tag @student.image, width:"150px" %>
+            <%= image_tag @student.image, class:"profile_image" %>
             <% else %>
-            <%= image_tag "/default_user.jpeg", width:"100px" %>
+            <%= image_tag "/default_user.jpeg", class:"profile_image" %>
             <% end %>
           </td>
           <td class="human_profile">名前</td>
@@ -52,5 +52,16 @@
             <td>趣味</td><td><%= @student.hobby %></td>
           </tr>
         </table>  
+      </div>
+      <div>
+        <% if @student_ids.include?(@student.id) %>
+          <%= link_to "メッセージへ移動する", teacher_message_path(@message) %>
+        <% else %>
+          <%= form_with model:[:teacher, Message.new], local: true do |f| %>
+            <%= f.hidden_field :student_id, :value => @student.id %>
+            <%= f.hidden_field :teacher_id, :value => current_teacher.id %>
+            <%= f.submit "メッセージを開始する" %>
+          <% end %>
+        <% end %>
       </div>
     </div>

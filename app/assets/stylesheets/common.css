@@ -34,10 +34,14 @@ p{
     word-break: break-word;
 }
 
+.profile_image{
+    width: 100px;
+}
+
 /* メッセージ詳細 */
 .chat{
     min-width:500px;
-    width:50%;
+    width:30%;
     margin: 0 auto;
     box-sizing:border-box;
     padding:10px; 
@@ -81,6 +85,16 @@ p{
     word-break: break-all;
 }
 
+.message_send{
+    display:flex;
+    width: -webkit-fill-available;
+}
+
+.message_text{
+    resize: none;
+    width: 90%;
+}
+
 /* メッセージ一覧 */
 
 .time-box .time{
@@ -103,7 +117,7 @@ p{
 
 
 .massage_user_name{
-    
+    padding-right: 10px;
 }
 
 .massage_photo{
@@ -112,10 +126,9 @@ p{
 }
 
 .massage_text{
-    text-overflow: ellipsis;
-    white-space: nowrap;
     overflow: hidden;
     flex: 1 1 auto;
+    text-align: justify;
 }
 
 .massage_ul{
@@ -132,8 +145,7 @@ p{
 }
 
 .massage_div_in_div{
-    display: grid;
-    grid-template-columns: 1fr fit-content(100%);
+    display: flex;
     text-align: justify;
 }
 

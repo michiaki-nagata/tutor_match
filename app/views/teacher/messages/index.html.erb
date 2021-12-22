@@ -1,39 +1,30 @@
-    <div style="font-size:1.5rem; font-weight:600; padding:10px 10px 15px 50px;">
+    <div style="font-size: 30px; font-weight: 600; padding: 10px 10px 15px 50px;">
       メッセージ
     </div>
     <ul class="massage_ul">
+      <% @messages.each do |message| %>
       <li class="massage_li">
-        <%= link_to teacher_messages_path(1) do %>
+        <%= link_to teacher_message_path(message) do %>
         <button class="massage_button">
           <div style="display:flex;">
-            <img src="https://i2.wp.com/sengoku-history.com/wp-content/uploads/2018/05/237daccc059db4e6d624afcab8e62197.jpg?fit=348%2C342&ssl=1" class="massage_photo"></img>
+            <% if message.student.image.attached? %>
+              <%= image_tag message.student.image, class:"massage_photo" %>
+            <% else %>
+              <%= image_tag "/default_user.jpeg", class:"massage_photo" %>
+            <% end %>
             <div class="message_div">
               <div class="massage_div_in_div">
-                <h5 class="massage_user_name">徳川家康</h5>
-                <time class="message_receive_time">2021/10/30 17:14</time>
+                <h5 class="massage_user_name"><%= message.student.name %></h5>
+                  <time class="message_receive_time"><%= message.comments.last&.created_at&.to_s(:datetime_jp) %></time>
               </div>
               <div>
-                <p class="massage_text">こんにちは。楽しく授業ができたらうれしいです。</p>
+                <p class="massage_text"><%= message.comments.last&.text %></p>
               </div>
             </div> 
           </div>
         </button>
         <% end %>
       </li>
-      <li class="massage_li">
-        <bottun class="massage_button">
-          <div style="display:flex;">
-            <img src="https://i2.wp.com/sengoku-history.com/wp-content/uploads/2018/05/237daccc059db4e6d624afcab8e62197.jpg?fit=348%2C342&ssl=1" class="massage_photo"></img>
-            <div class="message_div">
-              <diV class="massage_div_in_div">
-                <h5 class="massage_user_name">徳川家康</h5>
-                <time class="message_receive_time">2021/11/04 17:38</time>  
-              </diV>
-              <div>
-                <p class="massage_text">aaaaaaaaaaaaaaaaassssssssssssssssssssaaaaaaaaaa</p>
-              </div>
-            </div> 
-          </div>        
-        </bottun>
-      </li>
+      <% end %>
     </ul>
+  

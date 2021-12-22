@@ -1,0 +1,21 @@
+<div>
+    <div>
+        <h2><%= @teacher.name %>を教師に決定しますか？</h2>
+    </div>
+    <div style="text-align: center;">
+        <% if @teacher.image.attached? %>
+          <%= image_tag @teacher.image, class:"decision_img" %>
+        <% else %>
+          <%= image_tag "/default_user.jpeg", class:"decision_img" %>
+        <% end %>
+    </div>
+    <div style="text-align: center;">
+        <%= form_with  model:[:student, @student], local: true do |f| %>
+          <%= f.hidden_field :teacher_id, :value => @teacher.id  %>
+          <%= f.submit "はい", class:"decision_button" %>
+        <% end %>
+        <%= link_to student_teachers_path do %>
+          <button class="decision_button">いいえ</button>
+        <% end %>
+    </div>
+</div>
