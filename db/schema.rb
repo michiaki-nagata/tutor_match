@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2021_11_25_055205) do
     t.string "subject"
     t.string "character"
     t.string "hobby"
-    t.string "teacher_id"
+    t.integer "teacher_id"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

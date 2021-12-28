@@ -71,7 +71,7 @@
         <% end %>
         
         <% if current_student.teacher_id != @teacher.id %>
-          <%= link_to "担当教師に決定する", edit_student_student_path %>
+          <%= link_to "担当教師に決定する", edit_student_student_path(@teacher) %>
         <% end %>
       </div>
     </div>

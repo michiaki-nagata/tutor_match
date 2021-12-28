@@ -1,11 +1,10 @@
 <h1>担当生徒</h1>
-<% if @responsible_student_ids.nil? %>
+<% if @management_students.blank? %>
   <P>担当生徒はいません</P>
 <% else %>  
   <div>
     <table>
-      <% @students.each do |student| %>
-        <% if student.teacher_id == current_teacher.id %>
+      <% @management_students.each do |student| %>
           <tr>
             <td rowspan="2">
             <%= link_to teacher_student_path(student.id) do %>  
@@ -39,7 +38,6 @@
             <% end %>          
           </tr>
         <% end %>  
-      <% end %>
     </table>    
   </div>
 <% end %>

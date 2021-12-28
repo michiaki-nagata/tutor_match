@@ -21,7 +21,7 @@ Rails.application.routes.draw do
       resources :students, only: [:index, :show]
       resources :messages, only: [:index, :show, :create]
       resources :comments, only: [:create]
-      resources :managements, only: [:index, :show, :create]
+      resources :managements, only: [:index]
       resources :inquiries, only: [:new, :create, :index, :show]
       get "search", to: "students#search"
   end

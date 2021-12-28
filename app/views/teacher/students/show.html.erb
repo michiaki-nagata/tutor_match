@@ -42,15 +42,21 @@
       <div>
         <h4>基本情報</h4>
         <table width=520>
-          <tr>
-            <td>指導希望科目</td><td><%= @student.subject %></td>
-          </tr>
-          <tr>
-            <td>性格・タイプ</td><td><%= @student.character %></td>
-          </tr>
-          <tr>
-            <td>趣味</td><td><%= @student.hobby %></td>
-          </tr>
+          <% if @student.subject.present? %>
+            <tr>
+              <td>指導可能科目</td><td><%= @student.subject %></td>
+            </tr>
+          <% end %>
+          <% if @student.character.present? %>
+            <tr>
+              <td>性格・タイプ</td><td><%= @student.character %></td>
+            </tr>
+          <% end %>
+          <% if @student.hobby.present? %>
+            <tr>
+              <td>趣味</td><td><%= @student.hobby %></td>
+            </tr>          
+          <% end %>
         </table>  
       </div>
       <div>
