@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe Student::TeachersController, type: :request do
+RSpec.describe Student::StudentController, type: :request do
   let(:student) { create(:student) }
 
   # ログインしていない場合
   context 'not auth' do
-    describe '#index' do
+    describe '#edit' do
       it 'redirect sign in page' do
-        get 'student/teachers'
+        get 'student/student'
         expect(response.status).to redirect_to new_student_session_path
       end
     end
@@ -19,19 +19,12 @@ RSpec.describe Student::TeachersController, type: :request do
       sign_in student
     end
 
-    describe '#index' do
-      it 'response success' do
-        get student_teachers_path
-        expect(response.status).to eq(200)
-      end
-    end
-
-    describe '#search' do
+    describe '#edit' do
       it 'response success' do
       end
     end
 
-    describe '#show' do
+    describe '#update' do
       it 'response success' do
       end
     end
