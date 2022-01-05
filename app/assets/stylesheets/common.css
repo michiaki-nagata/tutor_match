@@ -45,7 +45,17 @@ p{
     margin: 0 auto;
     box-sizing:border-box;
     padding:10px; 
-    overflow: hidden;
+    display: grid;
+    grid-template-rows: 0.5fr 5fr 1fr;
+    grid-template-areas:
+      "name"
+      "messages"
+      "input";
+    
+}
+
+.message_name{
+    grid-area: name;
 }
     
 .logo{
@@ -93,6 +103,16 @@ p{
 .message_text{
     resize: none;
     width: 90%;
+}
+
+.message_display{
+    grid-area: messages;
+    overflow-y: auto;
+    position: relative;
+}
+
+.message_input{
+    grid-area: input;
 }
 
 /* メッセージ一覧 */

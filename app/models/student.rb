@@ -17,10 +17,6 @@ class Student < ApplicationRecord
     validates :gender
     validates :age, numericality: {less_than_or_equal_to: 100, greater_than_or_equal_to: 6}
   end
-  VALID_PHONE_NUMBER_REGEX = /\A0(\d{1}[-(]?\d{4}|\d{2}[-(]?\d{3}|\d{3}[-(]?\d{2}|\d{4}[-(]?\d{1})[-)]?\d{4}\z|\A0[5789]0[-]?\d{4}[-]?\d{4}\z/
-  validates :phone, uniqueness: true, allow_nil: true, format: { with: VALID_PHONE_NUMBER_REGEX }
+
   
-  def name
-    [name].join(" ")
-  end
 end
