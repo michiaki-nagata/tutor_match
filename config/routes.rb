@@ -23,7 +23,6 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
     resources :managements, only: [:index]
     resources :inquiries, only: %i[new create index show]
-    get 'search', to: 'students#search'
   end
 
   namespace :student do
@@ -32,7 +31,6 @@ Rails.application.routes.draw do
     resources :messages, only: %i[index show create]
     resources :comments, only: [:create]
     resources :inquiries, only: %i[new create index show]
-    get 'search', to: 'teachers#search'
   end
 
   root 'tops#top'

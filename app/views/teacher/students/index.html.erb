@@ -1,7 +1,7 @@
     <h2>生徒検索</h2>
     <div>
       <table>
-      <%= search_form_for @q, url: teacher_search_path do |f| %>
+      <%= search_form_for @q, url: teacher_students_path do |f| %>
         <tr>
           <td class="human_profile"><%= f.label :prefecture_cont, '都道府県' %></td>
           <td><%= f.search_field :prefecture_cont %></td>
@@ -33,7 +33,7 @@
           </td>
         </tr>
         <tr>
-          <td class="human_profile"><%= f.label :hobby, "趣味" %></td>
+          <td class="human_profile"><%= f.label :hobby, '趣味' %></td>
           <td>
             <%= f.text_field :hobby_eq_any %></br>
             <%= f.text_field :hobby_eq_any %></br>

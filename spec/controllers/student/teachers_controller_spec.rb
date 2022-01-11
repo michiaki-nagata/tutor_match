@@ -1,13 +1,24 @@
 require 'rails_helper'
 
 RSpec.describe Student::TeachersController, type: :request do
-  let(:student) { create(:student) }
+
+  before do 
+    @teacher = FactoryBot.create(:teacher)
+    @student = FactoryBot.create(:student)
+  end
 
   # ログインしていない場合
   context 'not auth' do
     describe '#index' do
       it 'redirect sign in page' do
-        get 'student/teachers'
+        get student_teachers_path
+        expect(response.status).to redirect_to new_student_session_path
+      end
+    end
+    
+    describe '#show' do
+      it 'redirect sign in page' do
+        get student_teacher_path, params: {id: id}
         expect(response.status).to redirect_to new_student_session_path
       end
     end
@@ -16,7 +27,7 @@ RSpec.describe Student::TeachersController, type: :request do
   # ログインしている場合
   context 'authenticated' do
     before do
-      sign_in student
+      sign_in @student
     end
 
     describe '#index' do
@@ -26,13 +37,9 @@ RSpec.describe Student::TeachersController, type: :request do
       end
     end
 
-    describe '#search' do
-      it 'response success' do
-      end
-    end
-
     describe '#show' do
       it 'response success' do
+        
       end
     end
   end

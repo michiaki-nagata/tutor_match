@@ -1,6 +1,6 @@
     <h2>先生検索</h2>
     <table>
-      <%= search_form_for @q, url: student_search_path do |f| %>
+      <%= search_form_for @q, url: student_teachers_path do |f| %>
         <tr>
           <td class="human_profile"><%= f.label :prefecture_cont, '都道府県' %></td>
           <td><%= f.search_field :prefecture_cont %></td>

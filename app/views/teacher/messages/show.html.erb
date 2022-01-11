@@ -1,6 +1,9 @@
 <div class="chat">
-  <h2 style="text-align:left;"><%= @message.teacher.name %></h4>
-  <section>
+  <section class="message_name">
+    <h2 style="text-align:left;"><%= @message.student.name %></h4>
+  </section>
+  
+  <section class="message_display">
     <% @comments.each do |comment| %>
       <div class="<%= comment.sender == "Teacher" ? "chat1 clearfix" : "chat2 clearfix" %>" >
         <% if (comment.sender == "Teacher" ? @message.teacher : @message.student).image.attached? %>
@@ -18,7 +21,7 @@
     <% end %>    
   </section>
 
-  <section>
+  <section class="message_input">
     <div class="message_send">
       <%= form_with model:[:teacher, @comment], class:"message_send", local: true do |f| %> 
         <%= f.hidden_field :message_id, :value => @message.id %>

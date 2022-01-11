@@ -1,13 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe Student::MessagesController, type: :request do
-  let(:student) { create(:student) }
-
+  
+  before do
+    @teacher = FactoryBot.create(:teacher)
+    @student = FactoryBot.create(:student, teacher_id: @teacher.id)
+    @message = FactoryBot.create(:message, teacher_id: @teacher.id, student_id: @student.id)    
+  end
+  
   # ログインしていない場合
   context 'not auth' do
     describe '#index' do
       it 'redirect sign in page' do
-        get 'student/messages'
+        get student_messages_path
         expect(response.status).to redirect_to new_student_session_path
       end
     end
@@ -16,21 +21,43 @@ RSpec.describe Student::MessagesController, type: :request do
   # ログインしている場合
   context 'authenticated' do
     before do
-      sign_in student
+      sign_in @student
     end
 
     describe '#index' do
       it 'response success' do
+        get student_messages_path
+        expect(response.status).to eq(200)
       end
     end
 
     describe '#show' do
-      it 'response success' do
+      #失敗
+      it 'render index' do
+        
       end
+
+      
+      #成功
+      it 'response 302' do
+        get student_message_path(@message.id)
+        expect(response.status).to eq(302)
+      end
+      
     end
 
     describe '#create' do
-      it 'response success' do
+      #失敗
+      it 'response 302' do
+
+      end
+      
+      #成功
+      it 'create message' do
+        message_params = FactoryBot.attributes_for(:message, teacher_id: @teacher.id, student_id: @student.id)
+        expect {
+          post student_messages_path, params:{ message: message_params}
+        }.to change(@student.messages, :count).by(1)
       end
     end
   end

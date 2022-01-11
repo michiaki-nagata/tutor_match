@@ -13,7 +13,7 @@
           <td class="human_profile">性別</td>
           <td class="human_profile">年齢</td>
           <td class="human_profile">都道府県</td>
-          <td class="human_profile">在籍学校名</td>
+          <td class="human_profile">在籍学校</td>
           <td class="human_profile">住所</td>
         </tr>
         <tr>
@@ -25,7 +25,7 @@
           <% end %>
           <td><%= @student.age %></td>
           <td><%= @student.prefecture %></td>
-          <td>岡崎高校2年</td>
+          <td><%= @student.school %></td>
           <td><%= @student.city %></td>
         </tr>
         <tr>

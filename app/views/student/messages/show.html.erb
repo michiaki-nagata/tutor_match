@@ -2,6 +2,7 @@
   <section class="message_name">
     <h2 style="text-align:left;"><%= @message.teacher.name %></h4>
   </section>
+  
   <section class="message_display">
     <% @comments.each do |comment| %>
       <div class="<%= comment.sender == "Teacher" ? "chat1 clearfix" : "chat2 clearfix" %>" >

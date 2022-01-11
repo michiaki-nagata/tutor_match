@@ -6,7 +6,7 @@ class Teacher::CommentsController < TeacherController
     if @comment.save
       redirect_to teacher_message_path(@comment.message_id)
     else
-      redirect_to '/student/messages'
+      redirect_to teacher_message_path(@comment.message_id)
     end
   end
 end
