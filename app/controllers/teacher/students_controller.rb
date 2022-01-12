@@ -8,6 +8,6 @@ class Teacher::StudentsController < TeacherController
 
   def show
     @student = Student.find(params[:id])
-    @message = current_student.messages.find_by(teacher_id: @teacher.id)
+    @message = current_student.messages.find_by(student_id: @student.id)
   end
 end
