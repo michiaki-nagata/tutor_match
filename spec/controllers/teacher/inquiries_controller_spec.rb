@@ -7,7 +7,7 @@ RSpec.describe Teacher::InquiriesController, type: :request do
   context 'not auth' do
     describe '#index' do
       it 'redirect sign in page' do
-        get 'teacher/inquiries'
+        get teacher_inquiries_path
         expect(response.status).to redirect_to new_teacher_session_path
       end
     end

@@ -1,14 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe Teacher::CommentsController, type: :request do
-  let(:teacher) { create(:teacher) }
-
+  let(:teacher) {create(:teacher)}
+  let(:student) {create(:student)}
+  let(:message) {create(:message, teacher_id: teacher.id, student_id: student.id)}
+  
   # ログインしていない場合
   context 'not auth' do
     describe '#create' do
       it 'redirect sign in page' do
+        comment_params = FactoryBot.attributes_for(:comment, message_id: message.id, sender: "Teacher")
+        post teacher_comments_path, params:{comment: comment_params}
         expect(response.status).to redirect_to new_teacher_session_path
-      end
+      end  
     end
   end
 
@@ -19,11 +23,29 @@ RSpec.describe Teacher::CommentsController, type: :request do
     end
 
     describe '#create' do
+      #失敗
       context 'validation error' do
-        let(:params) { { comments: { text: '' } } }
-        it 'response success' do
-          post '/teacher/messages', params: params
-          expect(response.status).to eq(200)
+        it 'redirect message page' do
+          comment_params = FactoryBot.attributes_for(:comment, text: nil, message_id: message.id, sender: "Teacher")
+          post teacher_comments_path, params:{comment: comment_params}
+          expect(response.status).to redirect_to teacher_message_path(message.id)
+        end  
+        
+        it 'not created comment' do
+          comment_params = FactoryBot.attributes_for(:comment, text: nil, message_id: message.id, sender: "Teacher")
+          expect {
+            post teacher_comments_path, params:{comment: comment_params}
+          }.to change(message.comments, :count).by(0)
+        end
+      end
+      
+      #成功  
+      context 'text sended' do
+        it 'created comment' do
+        comment_params = FactoryBot.attributes_for(:comment, message_id: message.id, sender: "Teacher")
+        expect {
+          post teacher_comments_path, params:{comment: comment_params}
+        }.to change(message.comments, :count).by(1)
         end
       end
     end
