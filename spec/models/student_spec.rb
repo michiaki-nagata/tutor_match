@@ -63,10 +63,12 @@ RSpec.describe Student, type: :model do
     expect(student.errors[:email]).to include("has already been taken")
   end
   
-  # teacher_idは整数でなければ無効であること
-  it 'is invalid not integer' do
-    student = FactoryBot.build(:student, teacher_id: 'あああ')
+  # 重複した電話番号なら無効な状態であること
+  it 'is invalid with a duplicate phone' do
+    FactoryBot.create(:student, phone: "09012345678")
+    student = FactoryBot.build(:student, phone: "09012345678")
     student.valid?
-    expect(student.errors[:teacher_id]).to include("is not a number")
-  end
+    expect(student.errors[:phone]).to include("has already been taken")
+  end  
+
 end

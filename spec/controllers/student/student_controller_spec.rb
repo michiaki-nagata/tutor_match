@@ -38,14 +38,6 @@ RSpec.describe Student::StudentController, type: :request do
     end
 
     describe '#update' do
-      #失敗
-      it 'does not update the project' do
-        student_params = FactoryBot.attributes_for(:student, teacher_id: "あああ" )
-        patch student_student_path(student.teacher_id), params:{student: student_params}
-        expect(response.status).to redirect_to edit_student_student_path
-      end
-      
-      #成功
       it 'update a student' do
         student_params = FactoryBot.attributes_for(:student, teacher_id: teacher.id)
         patch student_student_path(student.teacher_id), params:{student: student_params}

@@ -6,6 +6,7 @@ class Student::TeachersController < StudentController
 
   def show
     @teacher = Teacher.find(params[:id])
+    #@message = current_student.messages.find_by(teacher_id: @teacher.id)
     messages = current_student.messages
     @teacher_ids = []
     messages.each do |r|

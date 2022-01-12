@@ -8,6 +8,5 @@ FactoryBot.define do
     city { 'city' }
     gender { 1 }
     age { 12 }
-    teacher_id { 1 }
   end
 end

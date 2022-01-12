@@ -62,4 +62,12 @@ RSpec.describe Teacher, type: :model do
     teacher.valid?
     expect(teacher.errors[:email]).to include('has already been taken')
   end
+
+  # 重複した電話番号なら無効な状態であること
+  it 'is invalid with a duplicate phone' do
+    FactoryBot.create(:teacher, phone: "09012345678")
+    teacher = FactoryBot.build(:teacher, phone: "09012345678")
+    teacher.valid?
+    expect(teacher.errors[:phone]).to include("has already been taken")
+  end  
 end

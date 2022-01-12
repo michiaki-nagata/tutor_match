@@ -30,14 +30,6 @@ RSpec.describe Student::MessagesController, type: :request do
     end
 
     describe '#show' do
-      
-      #失敗
-      it 'render index' do
-        
-      end
-
-      
-      #成功
       it 'response 200' do
         get student_message_path(message.id)
         expect(response.status).to eq(200)
@@ -46,12 +38,6 @@ RSpec.describe Student::MessagesController, type: :request do
     end
 
     describe '#create' do
-      #失敗
-      it 'response 302' do
-
-      end
-      
-      #成功
       it 'create message' do
         message_params = FactoryBot.attributes_for(:message, teacher_id: teacher.id, student_id: student.id)
         expect {

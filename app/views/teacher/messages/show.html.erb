@@ -4,7 +4,7 @@
   </section>
   
   <section class="message_display">
-    <% @comments.each do |comment| %>
+    <% @message.comments.each do |comment| %>
       <div class="<%= comment.sender == "Teacher" ? "chat1 clearfix" : "chat2 clearfix" %>" >
         <% if (comment.sender == "Teacher" ? @message.teacher : @message.student).image.attached? %>
           <%= image_tag (comment.sender == "Teacher" ? @teacher : @student).image, class:"logo" %>

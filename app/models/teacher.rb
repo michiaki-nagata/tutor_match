@@ -17,4 +17,5 @@ class Teacher < ApplicationRecord
     validates :gender
     validates :age, numericality: { less_than_or_equal_to: 100, greater_than_or_equal_to: 6 }
   end
+  validates :phone, uniqueness: true, allow_nil: true, numericality: {only_integer: true}, length: {in: 10..11}
 end
