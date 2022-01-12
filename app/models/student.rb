@@ -18,5 +18,6 @@ class Student < ApplicationRecord
     validates :age, numericality: {less_than_or_equal_to: 100, greater_than_or_equal_to: 6}
   end
   validates :phone, uniqueness: true, allow_nil: true, length: {maximum:13}
+  validates :teacher_id, numericality: {only_integer: true, greater_than_or_equal_to: 1}
   
 end

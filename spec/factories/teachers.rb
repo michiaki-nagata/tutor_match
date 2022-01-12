@@ -1,6 +1,6 @@
 FactoryBot.define do
-  factory :teacher do
-    sequence(:email) { |i| "name#{i}@example.com" }
+  factory :teacher, class: Teacher do
+    sequence(:email) { |i| "#{i}name@example.com" }
     password { 'password' }
     password_confirmation { 'password' }
     name { 'name' }

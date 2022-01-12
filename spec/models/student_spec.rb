@@ -60,6 +60,13 @@ RSpec.describe Student, type: :model do
     FactoryBot.create(:student, email: 'test@example.com')
     student = FactoryBot.build(:student, email: 'test@example.com')
     student.valid?
-    expect(student.errors[:email]).to include('has already been taken')
+    expect(student.errors[:email]).to include("has already been taken")
+  end
+  
+  # teacher_idは整数でなければ無効であること
+  it 'is invalid not integer' do
+    student = FactoryBot.build(:student, teacher_id: 'あああ')
+    student.valid?
+    expect(student.errors[:teacher_id]).to include("is not a number")
   end
 end
