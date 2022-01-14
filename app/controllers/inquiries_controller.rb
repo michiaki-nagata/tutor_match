@@ -12,12 +12,8 @@ class InquiriesController < ApplicationController
   end
 
   def create
-    inquiry_params = params.require(:inquiry).permit(:name, :email, :title, :text)
-    @inquiry = Inquiry.new(inquiry_params)
-    if @inquiry.save
-      redirect_to inquiries_path
-    else
-      render 'new'
-    end
+    inquiry_params = params.require(:inquiry).permit(:name, :email, :title, :text ,:answer)
+    @inquiry = Inquiry.create(inquiry_params)
+    redirect_to inquiries_path
   end
 end
