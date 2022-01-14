@@ -1,0 +1,18 @@
+<%= link_to "問い合わせはこちらから", new_inquiry_path %>
+    
+    <h1>問い合わせ</h1>
+    <div>
+      <ul>
+        <% @inquiries.each do |inquiry| %>
+        <li style="list-style-type: none;" >
+          <div>
+            <% if inquiry.answer.present? %>
+              <%= link_to inquiry_path(inquiry) do %>
+                <%= inquiry.title %>
+              <% end %>  
+            <% end %>
+          </div>
+        </li>
+        <% end %>
+      </ul>
+    </div>

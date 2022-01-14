@@ -1,0 +1,18 @@
+    <h1>問い合わせ</h1>
+    <div>
+        <%= form_with model:[@inquiry], local: true do |f| %>
+        <table>
+            <tr>
+                <td><%= f.label :title, "タイトル" %></td>
+                <td><%= f.text_field :title, class:"inquiry_title", maxlength: "20", placeholder: "20文字でタイトルをお書きください" %></td>
+            </tr>
+            <tr>
+                <td><%= f.label :text, "内容" %></td>
+                <td><%= f.text_area :text, class:"inquiry_textarea", size: "50x15", maxlength: "300", placeholder: "300文字以内で質問内容をお書きください" %></td>
+            </tr>
+            <tr>
+                <td colspan="2", class="inquiry_submit"><%= f.submit "投稿" %></td>
+            </tr>
+        </table>
+        <% end %>
+    </div>

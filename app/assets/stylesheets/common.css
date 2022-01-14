@@ -206,3 +206,16 @@ p{
     width: -webkit-fill-available;
     resize: none;
 }
+
+.inquiry_title{
+    width: -webkit-fill-available;
+}
+
+.inquiry_textarea{
+    resize: none;
+}
+
+.inquiry_submit{
+   border-style: none;
+   text-align: right;
+}
