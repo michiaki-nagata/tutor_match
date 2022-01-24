@@ -38,6 +38,30 @@ p{
     width: 100px;
 }
 
+/* top画面 */
+
+.top_div{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.top_p_1{
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.top_p_2{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.top_image_1{
+    width: 600px;
+    
+}
+
 /* メッセージ詳細 */
 .chat{
     min-width:500px;
