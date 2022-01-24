@@ -22,7 +22,6 @@ Rails.application.routes.draw do
     resources :messages, only: %i[index show create]
     resources :comments, only: [:create]
     resources :managements, only: [:index]
-    resources :inquiries, only: %i[new create index show]
   end
 
   namespace :student do
@@ -30,8 +29,9 @@ Rails.application.routes.draw do
     resources :teachers, only: %i[index show]
     resources :messages, only: %i[index show create]
     resources :comments, only: [:create]
-    resources :inquiries, only: %i[new create index show]
   end
+  
+  resources :inquiries, only: %i[new create index show]
 
   root 'tops#top'
   get 'top', to: 'tops#top'

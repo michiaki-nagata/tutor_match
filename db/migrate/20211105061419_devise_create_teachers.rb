@@ -18,6 +18,7 @@ class DeviseCreateTeachers < ActiveRecord::Migration[5.2]
       t.string :subject
       t.string :character
       t.string :hobby
+      t.integer :student_id
 
       ## Recoverable
       t.string   :reset_password_token
