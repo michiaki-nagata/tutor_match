@@ -35,4 +35,6 @@ Rails.application.routes.draw do
 
   root 'tops#top'
   get 'top', to: 'tops#top'
+  get 'terms', to: 'tops#terms'
+  get 'privacy', to: 'tops#privacy'
 end
