@@ -6,7 +6,6 @@ class Teacher < ApplicationRecord
 
   has_many :messages
   has_many :students
-  belongs_to :teacher, optional: true
   has_one_attached :image
 
   with_options presence: true do

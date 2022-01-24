@@ -5,8 +5,7 @@ class Student < ApplicationRecord
          :recoverable, :rememberable, :validatable, :trackable
          
   has_many :messages
-  has_many :teachers
-  belongs_to :student, optional: true
+  belongs_to :teacher, optional: true
   has_one_attached :image
   
   with_options presence: true do
